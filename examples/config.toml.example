@@ -1,0 +1,43 @@
+# Ejemplo público basado en parámetros observados en la instalación local.
+# Sustituir las rutas ficticias y ajustar los permisos antes de usarlo.
+# La lista de herramientas de Codex es deliberadamente acotada para este ejemplo.
+# La configuración histórica completa exponía más herramientas de Sheets y Apps Script.
+
+[mcp_servers.google_workspace]
+command = "C:\\ruta\\privada\\workspace-mcp.exe"
+args = [
+  "--transport", "stdio",
+  "--tools", "sheets", "appscript", "drive",
+  "--tool-tier", "complete",
+  "--disabled-tools",
+  "check_drive_file_public_access",
+  "create_drive_file",
+  "create_drive_folder",
+  "get_drive_file_content",
+  "get_drive_file_download_url",
+  "get_drive_file_permissions",
+  "get_drive_shareable_link",
+  "import_to_google_doc",
+  "import_to_google_sheets",
+  "import_to_google_slides",
+  "manage_drive_access",
+  "set_drive_file_permissions",
+  "update_drive_file"
+]
+startup_timeout_sec = 60
+tool_timeout_sec = 180
+enabled_tools = [
+  "get_spreadsheet_info",
+  "read_sheet_values",
+  "get_script_project",
+  "search_drive_files",
+  "list_drive_items",
+  "copy_drive_file"
+]
+
+[mcp_servers.google_workspace.env]
+GOOGLE_CLIENT_SECRET_PATH = "C:\\ruta\\privada\\client_secret.json"
+WORKSPACE_MCP_CREDENTIALS_DIR = "C:\\ruta\\privada\\credentials"
+WORKSPACE_MCP_LOG_DIR = "C:\\ruta\\privada\\logs"
+USER_GOOGLE_EMAIL = "usuario@example.invalid"
+
